@@ -5041,7 +5041,7 @@
 
         function showQuizCards() {
             const quiz1 = cityQuestions[state.idx];
-            const nextIdx = (state.idx % cityData.length) + 1; // Next kota, loop ke 1 jika 15
+            const nextIdx = state.idx === cityData.length - 1 ? 1 : state.idx + 1; // Next kota, loop ke 1 jika di akhir
             const quiz2 = cityQuestions[nextIdx];
             
             if (!quiz1 || !quiz2) {
