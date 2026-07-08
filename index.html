@@ -3775,7 +3775,10 @@
             <div id="end-title"></div>
             <div id="end-message"></div>
             <div id="end-score" style="margin: clamp(12px, 1.2vw, 16px) 0; font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: var(--dark-outline);"></div>
-            <button class="btn-gold" onclick="location.reload()">MAIN LAGI 🔄</button>
+            <div style="display:flex;gap:12px;flex-direction:column;">
+                <button class="btn-gold" onclick="location.reload()">MAIN LAGI 🔄</button>
+                <button class="btn-gold" style="background:linear-gradient(135deg,#fff 0%,#e6f4ff 100%);color:var(--dark-outline);border:1px solid rgba(127,167,225,0.28);" onclick="backToMenu()">KEMBALI KE MENU ◀</button>
+            </div>
         </div>
     </div>
 
@@ -4426,6 +4429,20 @@
             // pause auto-walk while quiz is shown
             state.autoPaused = true;
             overlay.classList.add('show');
+        }
+
+        function backToMenu() {
+            // Hide end overlay and show adventure overlay (main menu)
+            const end = document.getElementById('end-overlay');
+            const adv = document.getElementById('adventure-overlay');
+            if (end) end.classList.remove('show');
+            if (adv) {
+                adv.classList.remove('hidden');
+                adv.classList.add('show');
+            } else {
+                // fallback: reload page
+                location.reload();
+            }
         }
 
         function checkAns(correct, selectedButton) {
@@ -5204,11 +5221,11 @@ Jika tidak ada energi yang hilang (ideal), pernyataan yang benar adalah …</div
             } else if (isJawaBarat) {
                 card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Perbandingan frekuensi nada dasar angklung A dan B (fa : fb) adalah …</div></div>`;
                 card3Options = ['A. 3:4', 'B. 4:3', 'C. 1:1', 'D. 2:1', 'E. 1:2'];
-                card3Correct = 0; // A. 3:4
+                card3Correct = 2; // C. 1:1 (user requested C for tier 1)
                 
                 card4HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Pernyataan siswa tersebut adalah …</div></div>`;
                 card4Options = ['A. benar, karena frekuensi nada dasar berbanding terbalik dengan panjang kolom udara', 'B. benar, karena panjang tabung menentukan amplitudo bunyi', 'C. salah, karena frekuensi berbanding lurus dengan panjang kolom udara', 'D. salah, karena jumlah tabung menentukan frekuensi', 'E. salah, karena massa bambu menentukan frekuensi'];
-                card4Correct = 0; // A
+                card4Correct = 2; // C (user requested C for tier 2)
             } else if (isJambi) {
                 card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Jika tegangan dinaikkan menjadi 900 N, maka frekuensi yang diprediksi adalah …</div></div>`;
                 card3Options = ['A. 360 Hz', 'B. 400 Hz', 'C. 420 Hz', 'D. 480 Hz', 'E. 500 Hz'];
@@ -5330,7 +5347,11 @@ Jika tidak ada energi yang hilang (ideal), pernyataan yang benar adalah …</div
                     state.isMoving = false;
                     // kembalikan token papan setelah kartu selesai
                     showBoardToken();
-                    if (state.visited.size === cityData.length) {
+                    // If finished visiting all cities, or if this quiz was for Jawa Barat, show finish
+                    const currentCityName = cityData[state.idx]?.name;
+                    if (currentCityName === 'Jawa Barat' || cityData[questionId]?.name === 'Jawa Barat') {
+                        finish(true);
+                    } else if (state.visited.size === cityData.length) {
                         finish(true);
                     }
                     updateTokenPos();
