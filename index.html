@@ -5163,9 +5163,15 @@ Siswa kemudian mencatat hasil pengamatannya sebagaimana pada gambar di atas.` : 
                 card3Options = ['A. 1 : 1', 'B. 8 : 5', 'C. 4 : 5', 'D. 5 : 4', 'E. 5 : 8'];
                 card3Correct = 4; // E. 5 : 8
                 
-                card4HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Alasan yang tepat adalah …<br><br>A. f ∝ 1/L maka f<sub>A</sub>/f<sub>B</sub> = L<sub>B</sub>/L<sub>A</sub><br>B. f ∝ L maka f<sub>A</sub>/f<sub>B</sub> = L<sub>A</sub>/L<sub>B</sub><br>C. f = konstan<br>D. I ∝ A<sup>2</sup><br>E. f ∝ vλ</div></div>`;
-                card4Options = ['A. f ∝ 1/L maka f<sub>A</sub>/f<sub>B</sub> = L<sub>B</sub>/L<sub>A</sub>', 'B. f ∝ L maka f<sub>A</sub>/f<sub>B</sub> = L<sub>A</sub>/L<sub>B</sub>', 'C. f = konstan', 'D. I ∝ A<sup>2</sup>', 'E. f ∝ vλ'];
-                card4Correct = 0; // A. f ∝ 1/L maka fA/fB = LB/LA
+                card4HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Alasan yang tepat adalah ...</div></div>`;
+                card4Options = [
+                    'A. f ∝ 1/L maka fA/fB = LB/LA',
+                    'B. f ∝ L maka fA/fB = LA/LB',
+                    'C. f = konstan',
+                    'D. I ∝ A²',
+                    'E. f ∝ vλ'
+                ];
+                card4Correct = 0; // keep A as correct by default
             } else if (isMaluku) {
                 card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Percobaan yang paling tepat untuk dilakukan adalah …</div></div>`;
                 card3Options = ['A. ibu dan anak menggunakan tifa yang sama dan dipukul dengan kuat yang sama', 'B. ibu dan anak tetap menggunakan tifa masing-masing dan cara memukul yang berbeda', 'C. ibu menggunakan tifa besar dan anak tifa kecil, tetapi dipukul dengan kuat yang sama', 'D. ibu dan anak menggunakan tifa yang sama, tetapi dipukul dengan kuat yang berbeda', 'E. ibu dan anak tetap menggunakan tifa masing-masing dan dipukul dengan kuat yang sama'];
