@@ -5305,7 +5305,7 @@ Jika tidak ada energi yang hilang (ideal), pernyataan yang benar adalah …</div
                 const btn = document.createElement('button');
                 btn.className = 'quiz-opt-btn';
                 btn.innerText = opt;
-                btn.disabled = true;
+                btn.disabled = !state.card3Answered;
                 btn.onclick = (event) => checkCardAnswer(4, idx === card4Correct, event.currentTarget);
                 options4.appendChild(btn);
             });
