@@ -1551,7 +1551,7 @@
 
         .question-card .quiz-options button,
         #quiz-cards-overlay .quiz-opt-btn {
-            width: calc(100% - 12px);
+            width: 100%;
             padding: clamp(8px, 1.2vw, 10px) clamp(14px, 1.8vw, 16px);
             border-radius: 12px;
             border: 1px solid var(--border-blue);
@@ -1561,7 +1561,8 @@
             font-size: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             box-sizing: border-box;
-            margin-right: auto;
+            margin: 0;
+            display: block;
         }
 
         .question-card .quiz-options button:hover,
