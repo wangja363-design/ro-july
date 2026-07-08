@@ -1336,6 +1336,8 @@
             display: block !important;
             white-space: normal !important;
             word-break: break-word !important;
+            overflow-wrap: anywhere !important;
+            hyphens: auto !important;
             max-width: 100% !important;
             text-align: left !important;
         }
@@ -5200,7 +5202,7 @@ Siswa kemudian mencatat hasil pengamatannya sebagaimana pada gambar di atas.` : 
                 card3Correct = 0;
                 
                 card4HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Alasan yang tepat adalah …</div></div>`;
-                card4Options = ['A. senar dengan tegangan lebih besar menghasilkan frekuensi lebih tinggi, sehingga jumlah senar yang memenuhi syarat dapat dibandingkan dengan total senar untuk menentukan peluang', 'B. karena panjang semua senar sama, maka frekuensi yang dihasilkan juga sama sehingga semua senar memiliki peluang yang sama', 'C. senar dengan tegangan lebih kecil menghasilkan frekuensi lebih tinggi, sehingga lebih banyak senar memenuhi syarat frekuensi yang ditentukan', 'D. peluang pemilihan senar dipengaruhi oleh hasil pemetikan sebelumnya, sehingga senar yang belum dipetik lebih mungkin menghasilkan frekuensi tertentu', 'E. frekuensi bunyi tidak dipengaruhi oleh tegangan senar, melainkan hanya oleh panjang senar, sehingga semua senar memiliki peluang yang sama'];
+                card4Options = ['A. tegangan lebih besar → frekuensi lebih tinggi', 'B. panjang senar sama → frekuensi semua senar sama', 'C. tegangan kecil → frekuensi lebih rendah', 'D. peluang tidak tergantung urutan pemetikan', 'E. frekuensi bergantung pada tegangan, bukan hanya panjang senar'];
                 card4Correct = 0;
             } else if (isLampung) {
                 card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Untuk menyelidiki hubungan antara amplitudo getaran dan intensitas bunyi secara tepat, pasangan percobaan yang harus dibandingkan adalah …</div></div>`;
@@ -5259,7 +5261,7 @@ Jika tidak ada energi yang hilang (ideal), pernyataan yang benar adalah …</div
                 card3Correct = 1;
                 
                 card4HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Alasan yang tepat adalah …</div></div>`;
-                card4Options = ['A. intensitas bunyi bergantung pada kuadrat amplitudo, sehingga teknik dengan amplitudo lebih besar perlu dianalisis terlebih dahulu untuk menentukan mana yang memenuhi batas intensitas sebelum peluang dihitung', 'B. amplitudo bunyi berpengaruh terhadap intensitas, sehingga teknik dengan amplitudo terbesar akan lebih dominan dan secara langsung menentukan peluang tanpa perlu membandingkan semua teknik', 'C. karena semua teknik dimainkan pada alat musik yang sama, maka perbedaan amplitudo tidak memengaruhi intensitas secara signifikan sehingga semua teknik dapat dianggap setara dalam peluang', 'D. peluang menghasilkan bunyi tertentu dipengaruhi oleh urutan teknik yang dipilih sebelumnya, sehingga teknik yang belum digunakan memiliki kemungkinan lebih besar untuk memenuhi syarat intensitas', 'E. intensitas bunyi ditentukan oleh karakteristik alat musik, sehingga variasi teknik pukulan tidak memberikan pengaruh utama terhadap nilai intensitas yang dihasilkan'];
+                card4Options = ['A. intensitas ∝ A², jadi amplitudo besar lebih mungkin memenuhi batas', 'B. amplitudo terbesar membuat teknik tersebut lebih dominan', 'C. semua teknik sama karena alat dan kondisi sama', 'D. peluang tidak tergantung pada urutan teknik', 'E. intensitas lebih ditentukan oleh alat daripada teknik pukulan'];
                 card4Correct = 0;
             } else {
                 card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${quiz1.q}</div></div>`;
