@@ -4573,7 +4573,9 @@
             }
             
             if (endScore) {
-                endScore.innerText = `Skor akhir: ${state.score}`;
+                const correctCount = state.answers ? state.answers.filter(a => a.correct).length : 0;
+                const wrongCount = state.answers ? state.answers.filter(a => !a.correct).length : 0;
+                endScore.innerText = `Skor akhir: ${state.score} • Benar: ${correctCount} • Salah: ${wrongCount}`;
             }
             
             // Kirim data ke spreadsheet
