@@ -4600,7 +4600,8 @@
             
             // Jika ada musik untuk kota ini, putar
             if (cityIdx < cityData.length && cityData[cityIdx].music) {
-                state.currentAudio = new Audio(cityData[cityIdx].music);
+                const musicUrl = encodeURI(cityData[cityIdx].music);
+                state.currentAudio = new Audio(musicUrl);
                 state.currentAudio.volume = 0.5; // volume 50%
                 state.currentAudio.play().catch(e => console.log('Musik tidak bisa diputar:', e));
             }
