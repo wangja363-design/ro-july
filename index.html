@@ -5072,6 +5072,7 @@
             const quiz1 = cityQuestions[state.idx];
             const nextIdx = state.idx === cityData.length - 1 ? 1 : state.idx + 1; // Next kota, loop ke 1 jika di akhir
             const quiz2 = cityQuestions[nextIdx];
+            state.currentQuiz2Idx = nextIdx;
             
             if (!quiz1 || !quiz2) {
                 // Jika tidak ada soal, langsung lanjut
@@ -5319,8 +5320,8 @@ Jika tidak ada energi yang hilang (ideal), pernyataan yang benar adalah …</div
         }
 
         function checkCardAnswer(cardNum, correct, selectedButton) {
-            const questionId = cardNum === 3 ? state.idx : ((state.idx % cityData.length) + 1);
-            const cityName = cityData[questionId].name;
+            const questionId = cardNum === 3 ? state.idx : (typeof state.currentQuiz2Idx === 'number' ? state.currentQuiz2Idx : (state.idx === cityData.length - 1 ? 1 : state.idx + 1));
+            const cityName = cityData[questionId]?.name || 'Unknown';
             const options = document.getElementById(`options-${cardNum}`);
             const correctIndex = Number(options.dataset.correctIndex);
             
@@ -5365,8 +5366,8 @@ Jika tidak ada energi yang hilang (ideal), pernyataan yang benar adalah …</div
                     state.isMoving = false;
                     // kembalikan token papan setelah kartu selesai
                     showBoardToken();
-                    // If finished visiting all cities, show finish
-                    if (state.visited.size === cityData.length) {
+                    // If finished visiting all cities or this was the final Jawa Barat challenge, show finish
+                    if (state.visited.size === cityData.length || (state.idx === cityData.length - 1 && cardNum === 4)) {
                         finish(true);
                     }
                     updateTokenPos();
