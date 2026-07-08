@@ -5361,11 +5361,8 @@ Jika tidak ada energi yang hilang (ideal), pernyataan yang benar adalah …</div
                     state.isMoving = false;
                     // kembalikan token papan setelah kartu selesai
                     showBoardToken();
-                    // If finished visiting all cities, or if this quiz was for Jawa Barat, show finish
-                    const currentCityName = cityData[state.idx]?.name;
-                    if (currentCityName === 'Jawa Barat' || cityData[questionId]?.name === 'Jawa Barat') {
-                        finish(true);
-                    } else if (state.visited.size === cityData.length) {
+                    // If finished visiting all cities, show finish
+                    if (state.visited.size === cityData.length) {
                         finish(true);
                     }
                     updateTokenPos();
