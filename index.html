@@ -1563,7 +1563,10 @@
             box-sizing: border-box;
             margin: 0;
             display: block;
-            max-width: calc(100% - 16px);
+            white-space: normal;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .question-card .quiz-options button:hover,
@@ -1734,19 +1737,10 @@
             font-size: 10px;
             text-align: left;
             box-shadow: 0 4px 12px rgba(93,140,210,0.06);
-        }
-
-        /* Uniform font sizes for quiz overlay cards */
-        #quiz-cards-overlay .card-title {
-            font-size: 10px;
-            line-height: 1.2;
-        }
-
-        #quiz-cards-overlay .card-content,
-        #quiz-cards-overlay .card-content p {
-            font-size: 10px;
-            line-height: 1.5;
-            text-align: justify !important;
+            white-space: normal;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         #quiz-cards-overlay .quiz-options button,
@@ -3174,6 +3168,17 @@
                 font-size: 10px !important;
                 padding: 8px 12px !important;
                 font-weight: 400 !important;
+                box-sizing: border-box !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: anywhere !important;
+                hyphens: auto !important;
+            }
+
+            .question-card .quiz-options button {
+                line-height: 1.4 !important;
             }
 
             #input-player-name {
@@ -3785,7 +3790,6 @@
             <div id="end-score" style="margin: clamp(12px, 1.2vw, 16px) 0; font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: var(--dark-outline);"></div>
             <div style="display:flex;gap:12px;flex-direction:column;">
                 <button class="btn-gold" onclick="location.reload()">MAIN LAGI 🔄</button>
-                <button class="btn-gold" style="background:linear-gradient(135deg,#fff 0%,#e6f4ff 100%);color:var(--dark-outline);border:1px solid rgba(127,167,225,0.28);" onclick="backToMenu()">KEMBALI KE MENU ◀</button>
             </div>
         </div>
     </div>
