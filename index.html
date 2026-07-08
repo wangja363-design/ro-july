@@ -4984,7 +4984,7 @@
                 selectedRandom.push(otherInstruments.splice(idx, 1)[0]);
             }
 
-            return [correctInstrument, ...selectedRandom].filter(Boolean);
+            return shuffleArray([correctInstrument, ...selectedRandom].filter(Boolean));
         }
 
         function resetAdventureSpawnPlan() {
